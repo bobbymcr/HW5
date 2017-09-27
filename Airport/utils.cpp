@@ -8,11 +8,11 @@
 // b <= r < a, if b < a
 
 int randomNumber (int a, int b) {
-	if (b == a) 
-		return b;
+    if (b == a) 
+        return b;
 
-	if (b > a)
-		return a + (rand() % (b - a));
+    if (b > a)
+        return a + (rand() % (b - a));
 
-	return b + (rand() % (a - b));
+    return b + (rand() % (a - b));
 }

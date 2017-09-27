@@ -18,11 +18,11 @@ const int MAX_VELOCITY = 15;
 
 class Plane : public Aircraft {
 public:
-	// the constructor
-	Plane (int x, int y, bool isFacingLeft, GP142Display *display);
+    // the constructor
+    Plane (int x, int y, bool isFacingLeft, GP142Display *display);
 
-	// draw out the plane
-	virtual void draw () const;
+    // draw out the plane
+    virtual void draw () const;
 };
 
 #endif

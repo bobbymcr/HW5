@@ -12,24 +12,24 @@
 
 class Event {
 public:
-	// the constructor
-	Event ();
+    // the constructor
+    Event ();
 
-	// simulate the event for one period of time. Returns true if the event being 
-	// simulated is over, otherwise return false
-	virtual bool doEvent () = 0;
+    // simulate the event for one period of time. Returns true if the event being 
+    // simulated is over, otherwise return false
+    virtual bool doEvent () = 0;
 
-	// draw the objects associated with the event on the screen
-	virtual void draw () = 0;
+    // draw the objects associated with the event on the screen
+    virtual void draw () = 0;
 
-	// = aircraft object associated with the event
-	virtual Aircraft* getAircraft ();
+    // = aircraft object associated with the event
+    virtual Aircraft* getAircraft ();
 
-	// the destructor 
-	virtual ~Event();
+    // the destructor 
+    virtual ~Event();
 
 protected:
-	Aircraft *aircraft;		// aircraft object associated with the event
+    Aircraft *aircraft;        // aircraft object associated with the event
 
 };
 

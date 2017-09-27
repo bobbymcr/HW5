@@ -141,19 +141,19 @@ void GP142Display::setAnimation(GP142Periodic newPeriod)
         switch(newPeriod)
         {
           case Halt: 
-	    set = ANI_HALT;
-	    break;
-	  case SingleStep: 
-	    set = ANI_SINGLE_STEP;
-	    break;
-	  case Run: 
-	    set = ANI_RUN;
-	    break;
-	  case SendQuit: 
-	    set = ANI_QUIT;
-	    break;
-	  default:
-	    break;
+        set = ANI_HALT;
+        break;
+      case SingleStep: 
+        set = ANI_SINGLE_STEP;
+        break;
+      case Run: 
+        set = ANI_RUN;
+        break;
+      case SendQuit: 
+        set = ANI_QUIT;
+        break;
+      default:
+        break;
         }
 
         GP142_animate(set);

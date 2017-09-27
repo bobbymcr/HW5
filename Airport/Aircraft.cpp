@@ -5,50 +5,50 @@
 #include "Aircraft.h"
 
 Aircraft::Aircraft () {
-	display = NULL;
+    display = NULL;
 }
 
 
 int Aircraft::getX () const {
-	return x;
+    return x;
 }
 
 
 int Aircraft::getY () const {
-	return y;
+    return y;
 }
 
 
 bool Aircraft::isFacingLeftOrNot () const {
-	return isFacingLeft;
+    return isFacingLeft;
 }
 
 
 void Aircraft::setX (int x) {
-	this->x = x;
+    this->x = x;
 }
 
 
 void Aircraft::setY (int y) {
-	this->y = y;
+    this->y = y;
 }
 
 
 void Aircraft::changeX (int deltaX) {
-	x += deltaX;
+    x += deltaX;
 }
 
 
 void Aircraft::changeY (int deltaY) {
-	y += deltaY;
+    y += deltaY;
 }
 
 
 int Aircraft::getVelocity () const {
-	return velocity;
+    return velocity;
 }
 
 
 Aircraft::~Aircraft () {
-	// Nothing to do :-)
+    // Nothing to do :-)
 }

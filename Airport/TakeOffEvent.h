@@ -19,30 +19,30 @@ const double FRACTION_RUNWAY_REMAINED_TAKEOFF = 0.35;
 
 class TakeOffEvent : public Event{
 public:
-	// constructor for TakeOffEvent. It takes the y-coordinate of the runway
-	// on which the plane will land as the first parameter. The second parameter
-	// is the screen on which the event will be displayed
-	TakeOffEvent (int y, GP142Display *display);
+    // constructor for TakeOffEvent. It takes the y-coordinate of the runway
+    // on which the plane will land as the first parameter. The second parameter
+    // is the screen on which the event will be displayed
+    TakeOffEvent (int y, GP142Display *display);
 
-	// simulates the TakeOffEvent for one unit of time
-	virtual bool doEvent ();
+    // simulates the TakeOffEvent for one unit of time
+    virtual bool doEvent ();
 
-	// invokes the draw method of the aircraft object associated with the 
-	// TakeOffEvent
-	virtual void draw ();
+    // invokes the draw method of the aircraft object associated with the 
+    // TakeOffEvent
+    virtual void draw ();
 
-	// the destructor : deallocates the memory for the dynamically allocated 
-	// aircraft object
-	virtual ~TakeOffEvent();
+    // the destructor : deallocates the memory for the dynamically allocated 
+    // aircraft object
+    virtual ~TakeOffEvent();
 
 private:
-	// coordinates of the aircraft object when it is just about to move from the waiting
-	// queue on to the runway.
-	int initX, initY; 
+    // coordinates of the aircraft object when it is just about to move from the waiting
+    // queue on to the runway.
+    int initX, initY; 
 
-	// approximately, the coordinates of the aircraft object when it leaves the display
-	// screen
-	int finalX, finalY;
+    // approximately, the coordinates of the aircraft object when it leaves the display
+    // screen
+    int finalX, finalY;
 };
 
 #endif

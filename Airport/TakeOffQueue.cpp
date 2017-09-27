@@ -13,13 +13,13 @@
 // 2. assign proper values to the x and y coordinates of the aircraft
 //    object associated with the event e, so that when the queue is 
 //    draw on the display screen, the plane gets displayed in correct position
-// For doing task 1, this function invokes the EventQueue::enqueue function	
+// For doing task 1, this function invokes the EventQueue::enqueue function    
 // It provides implementation for task 2
 void TakeOffQueue::enqueue (Event *e) {
-	// add the event to the queue
-	EventQueue::enqueue (e);
-	// position the plane correctly on the display.
-	e->getAircraft()->changeX (-length*DISTANCE_BETWEEN_PLANES);
+    // add the event to the queue
+    EventQueue::enqueue (e);
+    // position the plane correctly on the display.
+    e->getAircraft()->changeX (-length*DISTANCE_BETWEEN_PLANES);
 }
 
 // the dequeue (like the enqueue above) has two tasks to do
@@ -29,24 +29,24 @@ void TakeOffQueue::enqueue (Event *e) {
 // For doing task 1, this function invokes the EventQueue::dequeue function
 // It provides implementation for task 2
 Event* TakeOffQueue::dequeue () {
-	// update the x-coordinates of all the planes in the queue (All the planes
-	// will move to the right by DISTANCE_BETWEEN_PLANES amount.
-	for (int i = 1; i <= length; i++) {
-		Event *e = this->getIthEvent (i);
-		Aircraft *a = e->getAircraft ();
-		a->changeX(DISTANCE_BETWEEN_PLANES);
-	}	
-	// dequeue the event and return it
-	return EventQueue::dequeue ();	
+    // update the x-coordinates of all the planes in the queue (All the planes
+    // will move to the right by DISTANCE_BETWEEN_PLANES amount.
+    for (int i = 1; i <= length; i++) {
+        Event *e = this->getIthEvent (i);
+        Aircraft *a = e->getAircraft ();
+        a->changeX(DISTANCE_BETWEEN_PLANES);
+    }    
+    // dequeue the event and return it
+    return EventQueue::dequeue ();    
 }
 
 // This function draws out the takeoff queue on the runway
 void TakeOffQueue::draw () {
-	// one by one, get an event from the queue and draw out the corresponding aircraft
-	for (int i = 1; i <= length; i++) {
-		Event *e = this->getIthEvent (i);		// get the event
-		Aircraft *a = e->getAircraft();			// get the correspoding aircraft
-		a->draw();								// draw out the aircraft
-	}
+    // one by one, get an event from the queue and draw out the corresponding aircraft
+    for (int i = 1; i <= length; i++) {
+        Event *e = this->getIthEvent (i);        // get the event
+        Aircraft *a = e->getAircraft();            // get the correspoding aircraft
+        a->draw();                                // draw out the aircraft
+    }
 
 }

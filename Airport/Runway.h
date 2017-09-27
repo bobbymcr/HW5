@@ -21,46 +21,46 @@ const int RUNWAY_WIDTH = 45;
 
 class Runway {
 public:
-	// constructor 
-	Runway (int y, GP142Display *display);
-	
-	// draws the runway on the display
-	void draw () const;
+    // constructor 
+    Runway (int y, GP142Display *display);
+    
+    // draws the runway on the display
+    void draw () const;
 
-	// = y-coordinate of the center of the runway
-	int getY () const;
+    // = y-coordinate of the center of the runway
+    int getY () const;
 
-	// = pointer to the takeOffQueue associated with the runway
-	TakeOffQueue* getTakeOffQueue ();
+    // = pointer to the takeOffQueue associated with the runway
+    TakeOffQueue* getTakeOffQueue ();
 
-	// marks the finishing of the event being simulated on the runway
-	// sets the value of eventInProgress to NULL
-	void setEventOver ();
+    // marks the finishing of the event being simulated on the runway
+    // sets the value of eventInProgress to NULL
+    void setEventOver ();
 
-	// = pointer to the event object which represent the event being currenly
-	// simulated on the runway.
-	Event* getEventInProgress ();
+    // = pointer to the event object which represent the event being currenly
+    // simulated on the runway.
+    Event* getEventInProgress ();
 
-	// sets the event which is going to be simulated next on the runway
-	void setEventInProgress (Event *e);
+    // sets the event which is going to be simulated next on the runway
+    void setEventInProgress (Event *e);
 
-	// the destructor
-	~Runway ();
+    // the destructor
+    ~Runway ();
 
 private:
-	int y;						// y-coordinate of the runway on the display
-	GP142Display *display;		// the screen on which the runway will be displayed
+    int y;                        // y-coordinate of the runway on the display
+    GP142Display *display;        // the screen on which the runway will be displayed
 
-	// pointer to the event which is being simulated on the runway currently.
-	// it is NULL, if there is no event being simulated on the runway
-	Event *eventInProgress;		
+    // pointer to the event which is being simulated on the runway currently.
+    // it is NULL, if there is no event being simulated on the runway
+    Event *eventInProgress;        
 
-	// the queue associated with taking off
-	// *** You can have more queues when you have more types of events ***
-	// *** In particular, you will have a landingQueue, when you add a ***
-	// *** landing event											   ***
-	TakeOffQueue *takeOffQueue;
-	
+    // the queue associated with taking off
+    // *** You can have more queues when you have more types of events ***
+    // *** In particular, you will have a landingQueue, when you add a ***
+    // *** landing event                                               ***
+    TakeOffQueue *takeOffQueue;
+    
 };
 
 #endif

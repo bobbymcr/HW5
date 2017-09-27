@@ -8,15 +8,15 @@
 #include "Event.h"
 
 EventQueue::EventQueue () {
-	length = 0;
-	front = NULL;
-	rear = NULL;
+    length = 0;
+    front = NULL;
+    rear = NULL;
 }
 
 
 // = true if the queue is empty
 bool EventQueue::isEmpty () const {
-	return (length == 0);
+    return (length == 0);
 }
 
 
@@ -28,29 +28,29 @@ bool EventQueue::isEmpty () const {
 // *** linked list. Instead YOU SHOULD KEEP A REAR POINTER AND  ***
 // *** USE THAT                                                 ***                                        
 void EventQueue::enqueue (Event *e) {
-	assert (e != NULL);
+    assert (e != NULL);
 
-	QueueNode *temp, *newNode;
-	temp = front;
+    QueueNode *temp, *newNode;
+    temp = front;
 
-	newNode = new QueueNode;// create the new node that will be added to the queue
-	newNode->e = e;
-	newNode->next = NULL;
+    newNode = new QueueNode;// create the new node that will be added to the queue
+    newNode->e = e;
+    newNode->next = NULL;
 
-	// if the queue is empty
-	if (temp == NULL) {
-		front = newNode;
-		length = 1;			// queue was intially empty, so new length is 1
-		return;
-	}
+    // if the queue is empty
+    if (temp == NULL) {
+        front = newNode;
+        length = 1;            // queue was intially empty, so new length is 1
+        return;
+    }
 
-	// if the queue is not empty, the go till the end of the queue to insert the element
-	while (temp->next != NULL) {
-		temp = temp->next;
-	}
-	temp->next = newNode;
-	length = length + 1;	// update the length of the queue
-	return;
+    // if the queue is not empty, the go till the end of the queue to insert the element
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    length = length + 1;    // update the length of the queue
+    return;
 
 }
 
@@ -58,57 +58,57 @@ void EventQueue::enqueue (Event *e) {
 // The usual dequeue function for a queue. It returns NULL if the queue is empty
 // *** implement this using 'front' and 'rear' ***
 Event* EventQueue::dequeue () {
-	if (isEmpty ())
-		return NULL;		// return NULL if the queue is empty
+    if (isEmpty ())
+        return NULL;        // return NULL if the queue is empty
 
-	QueueNode *temp = front;
-	front = front->next;	// remove the first element of the queue		
-	length = length - 1;	// update the length of the queue
+    QueueNode *temp = front;
+    front = front->next;    // remove the first element of the queue        
+    length = length - 1;    // update the length of the queue
 
-	Event *event = temp->e;
-	delete temp;			// release the memory used up by the node just dequeued
-	temp = NULL;
+    Event *event = temp->e;
+    delete temp;            // release the memory used up by the node just dequeued
+    temp = NULL;
 
-	return event;
+    return event;
 
 }
 
 
 // = returns the length of the queue
 int EventQueue::getLength () const {
-	return length;
+    return length;
 }
 
 
 // = returns the i-th (counted from front) event from the queue
 // If i is less than one or greater than the length, it returns NULL
 Event* EventQueue::getIthEvent (int i) {
-	if (i < 1 || i > length)
-		return NULL;
+    if (i < 1 || i > length)
+        return NULL;
 
-	int count = 1;
-	QueueNode *temp = front;
-	while (count < i) {
-		temp = temp->next;
-		count++;
-	}
+    int count = 1;
+    QueueNode *temp = front;
+    while (count < i) {
+        temp = temp->next;
+        count++;
+    }
 
-	return temp->e;
+    return temp->e;
 }
 
 
 // the destructor, which invokes a helper function, deleteQueue 
 EventQueue::~EventQueue () {
-	deleteQueue (front);
+    deleteQueue (front);
 }
 
 
 // a helper function used by the destructor. It deletes all the nodes in the queue
 void EventQueue::deleteQueue (QueueNode *n) {
     if (n != NULL) {
-		deleteQueue (n->next);
-		delete n->e;	// delete the event contained in the node
-		delete n;		// delete the node itself
-	}
+        deleteQueue (n->next);
+        delete n->e;    // delete the event contained in the node
+        delete n;        // delete the node itself
+    }
 }
 

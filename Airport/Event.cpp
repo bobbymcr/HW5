@@ -6,13 +6,13 @@
 #include "Aircraft.h"
 
 Event::Event () {
-	aircraft = NULL;
+    aircraft = NULL;
 }
 
 Aircraft* Event::getAircraft () {
-	return aircraft;
+    return aircraft;
 }
 
 Event::~Event () {
-	// do nothing 
+    // do nothing 
 }
