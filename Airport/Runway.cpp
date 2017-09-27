@@ -38,15 +38,15 @@ void Runway::draw () const {
     int offset = DISTANCE_BETWEEN_PLANES + DISPLAY_OCCUPIED_BY_TAKEOFF_QUEUE;
 
     // draw the actual runway
-    display->drawRectangle (-GP142_XMAX+offset, y - (RUNWAY_WIDTH)*1.2/2, GP142_XMAX, y + (RUNWAY_WIDTH)*0.8/2, MedGray, 0);
+    display->drawRectangle (-GP142_XMAX+offset, static_cast<int>(y - (RUNWAY_WIDTH)*1.2/2), GP142_XMAX, static_cast<int>(y + (RUNWAY_WIDTH)*0.8/2), MedGray, 0);
     display->drawLine (-GP142_XMAX + offset, y, GP142_XMAX, y, White, 2);
 
     // draw the queuing portion of the runway
-    display->drawRectangle (-GP142_XMAX, y - (RUNWAY_WIDTH)*1.2/2, -GP142_XMAX+offset, y , MedGray, 0);
+    display->drawRectangle (-GP142_XMAX, static_cast<int>(y - (RUNWAY_WIDTH)*1.2/2), -GP142_XMAX+offset, y , MedGray, 0);
 
     // draw the taxiing portion of the runway
-    display->drawTriangle (-GP142_XMAX, y + (RUNWAY_WIDTH)*1.0/2, -GP142_XMAX+offset, y + (RUNWAY_WIDTH)*0.8/2, -GP142_XMAX, y + (RUNWAY_WIDTH)*1.0, MedGray, 0);
-    display->drawTriangle (-GP142_XMAX, y + (RUNWAY_WIDTH)*1.0/2, -GP142_XMAX+offset, y + (RUNWAY_WIDTH)*0.8/2, -GP142_XMAX + offset, y, MedGray, 0);
+    display->drawTriangle (-GP142_XMAX, static_cast<int>(y + (RUNWAY_WIDTH)*1.0/2), -GP142_XMAX+offset, static_cast<int>(y + (RUNWAY_WIDTH)*0.8/2), -GP142_XMAX, static_cast<int>(y + (RUNWAY_WIDTH)*1.0), MedGray, 0);
+    display->drawTriangle (-GP142_XMAX, static_cast<int>(y + (RUNWAY_WIDTH)*1.0/2), -GP142_XMAX+offset, static_cast<int>(y + (RUNWAY_WIDTH)*0.8/2), -GP142_XMAX + offset, y, MedGray, 0);
 
     takeOffQueue->draw ();
 }

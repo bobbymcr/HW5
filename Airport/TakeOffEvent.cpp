@@ -12,7 +12,7 @@ TakeOffEvent::TakeOffEvent (int y, GP142Display *display) {
     // note that the region in which the planes queue up for take off is not the part
     // of the actual runway
     this->initX = -GP142_XMAX + DISTANCE_BETWEEN_PLANES + DISPLAY_OCCUPIED_BY_TAKEOFF_QUEUE;
-    this->initY = y - RUNWAY_WIDTH*0.2;
+    this->initY = y - static_cast<int>(RUNWAY_WIDTH*0.2);
 
     // here finalX and finalY have been initialized to the point on the display at which
     // the plane disappears from the display
@@ -51,7 +51,7 @@ bool TakeOffEvent::doEvent () {
 
     // if the plane has lifted off the runway, change y-coordinate of the plane too
     if (aircraft->getX () > initX + (finalX - initX)*(1 - FRACTION_RUNWAY_REMAINED_TAKEOFF)) { // plane has left the runway
-        deltaY = deltaX * MAX_HEIGHT_AFTER_TAKEOFF/(FRACTION_RUNWAY_REMAINED_TAKEOFF * (finalX - initX));
+        deltaY = static_cast<int>(deltaX * MAX_HEIGHT_AFTER_TAKEOFF/(FRACTION_RUNWAY_REMAINED_TAKEOFF * (finalX - initX)));
         aircraft->changeY (deltaY);
     }
 
