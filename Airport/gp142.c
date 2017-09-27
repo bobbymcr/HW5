@@ -1805,7 +1805,7 @@ static void
 SaveToScript(int a, GP142_event_t e)
 {
     if (gScriptFP == NULL)
-        if ((gScriptFP = fopen(kScriptName, "wt")) == NULL)
+        if (fopen_s(&gScriptFP, kScriptName, "wt") != 0)
             {
                 printf("Cannot open script file %s for writing\n", kScriptName);
                 return;
@@ -1844,7 +1844,7 @@ PlayFromScript(void)
     gEventAction and gEventRecord. */
     
     if (gScriptFP == NULL)
-        if ((gScriptFP = fopen(kScriptName, "rt")) == NULL)
+        if (fopen_s(&gScriptFP, kScriptName, "rt") != 0)
             {
                 printf("Cannot open script file %s for reading\n", kScriptName);
                 ClearPlayFlag();
@@ -2058,7 +2058,7 @@ WINprintf(
     va_start( vlist, fmt );     /* Initialize va_ functions     */
 
                                 /* prints string to buffer      */
-    cnt = vsprintf(str, fmt, vlist);
+    cnt = vsprintf_s(str, 1024, fmt, vlist);
     va_end( vlist );            /* Close va_ functions          */
                                 /* Send string to graphics wind */
 
@@ -3100,7 +3100,7 @@ GP142_printfXY(
   va_start( vlist, fmt );       /* Initialize va_ functions     */
 
                                 /* prints string to buffer      */
-  cnt = vsprintf( str, fmt, vlist ); 
+  cnt = vsprintf_s( str, 1024, fmt, vlist );
   va_end( vlist );              /* Close va_ functions          */
                                 /* Send string to graphics wind */
   GP142_textXY( color,x,y,point_size,str ); 
@@ -3122,7 +3122,7 @@ GP142_printfP(
   va_start( vlist, fmt );       /* Initialize va_ functions     */
 
                                 /* prints string to buffer      */
-  cnt = vsprintf( str, fmt, vlist ); 
+  cnt = vsprintf_s( str, 1024, fmt, vlist );
   va_end( vlist );              /* Close va_ functions          */
                                 /* Send string to graphics wind */
   GP142_textP( color,p,point_size,str ); 
